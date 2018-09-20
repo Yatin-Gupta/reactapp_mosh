@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 class CounterComponent extends Component {
-  state = {
-    count: 0,
-    imageUrl: "http://picsum.photos/200",
-    tags: []
-  };
+  // state = {
+  //   count: this.props.value,
+  //   imageUrl: "http://picsum.photos/200",
+  //   tags: []
+  // };
 
   styles = {
     fontSize: 15,
@@ -19,49 +19,50 @@ class CounterComponent extends Component {
   //     // same this.
   //   }
 
-  renderTags() {
-    // helper method for conditional rendering tags
-    if (this.state.tags.length == 0) return <p>There are no tags!!</p>;
-    else
-      return (
-        <ul>
-          {this.state.tags.map(tag => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
-      );
-  }
+  // renderTags() {
+  //   // helper method for conditional rendering tags
+  //   if (this.state.tags.length === 0) return <p>There are no tags!!</p>;
+  //   else
+  //     return (
+  //       <ul>
+  //         {this.state.tags.map(tag => (
+  //           <li key={tag}>{tag}</li>
+  //         ))}
+  //       </ul>
+  //     );
+  // }
 
   render() {
     return (
       <React.Fragment>
+        {this.props.children}
         <span style={this.styles} className={this.getBadgeClassLabel()}>
           {this.formatCount()}
         </span>
         <button
           className="btn btn-secondary btn-sm"
           styles={{ border: "2px" }}
-          onClick={() => this.incrementHandler({ id: 1 })} // this syntax is used to pass parameter to click event handler
+          onClick={()=>this.props.onIncrement(this.props.counter.id)}
+          //onClick={() => this.incrementHandler({ id: 1 })} // this syntax is used to pass parameter to click event handler
           //onClick={this.incrementHandler}
         >
           Increment
         </button>
-        {this.state.tags.length === 0 && "Please create a tag first"}
-        {this.renderTags()}
+        <button className="btn btn-sm btn-danger m-2" onClick={() => this.props.onDelete(this.props.id) }>Delete</button>
       </React.Fragment>
     );
   }
 
   getBadgeClassLabel() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
+    //const { count } = this.state;
     //return count === 0 ? <h1>Zero</h1> : count;
-    return count === 0 ? "Zero" : count;
+    return this.props.counter.value === 0 ? "Zero" : this.props.counter.value;
   }
 
   //   incrementHandler() {

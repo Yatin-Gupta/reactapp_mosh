@@ -100,3 +100,5 @@ Hi && true is true
 
 20. In React when state is changed, new ReactElement or virtual DOM is generated, then react compare new virtual DOM and old virtual DOM, 
 and only change that part of DOM that actually changed and don't change it what has not changed due to change in state in new virtual DOM.
+
+21. Every React component has property called props.

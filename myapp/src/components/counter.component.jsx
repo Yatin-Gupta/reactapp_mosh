@@ -40,7 +40,7 @@ class CounterComponent extends Component {
         </span>
         <button
           className="btn btn-secondary btn-sm"
-          styles={{ width: "10px" }}
+          styles={{ border: "2px" }}
           onClick={() => this.incrementHandler({ id: 1 })} // this syntax is used to pass parameter to click event handler
           //onClick={this.incrementHandler}
         >

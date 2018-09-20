@@ -32,3 +32,47 @@ Babel is toolchain that is mainly used to convert ECMAScript 2015+ code into a b
 Transform syntax
 Polyfill features that are missing in your target environment (through @babel/polyfill)
 Source code transformations (codemods)
+
+11. <div id="root"> is container for react application.
+
+12. In React HTML written in render method of component is neither string nor HTML, but it is JSX stands for 
+Javascript XML. We need to pass this JSX to babbel, babbel will convert this JSX into plain javascript.
+
+13. we can check same at https://babeljs.io/repl
+
+14. This line "const html = <h1> Hello world </h1>" translates to:
+"use strict";
+
+var html = React.createElement(
+  "h1",
+  null,
+  " Hello world "
+);
+which browser can understand.
+
+registerServiceWorker.js serves pages from local cache.
+
+15. Even though we not directly use React in code like if I write code as
+let some = <h1>HW</h1>
+but because this code is traslated to React.createElement by babbel, its important to import React event in that file also.
+
+16. Whenever we save app, our app automatically compiled this is called Hot Model Reloading.
+
+17. To render we require ReactDOM
+
+18. when returning JSX expression using return statement, we must keep it in parenthesis. This is because of automatic semicolon insertion in JS. like
+
+return 
+<h1>Hello World</h1>; will be treated in JS as:
+
+return;
+<h1>Hello World</h1>
+
+but to avoid such situation we should write it as:
+return (
+<h1>hw</h1>
+)
+
+Also when writing many html statements(more than one), it is important to have at least one parent. Parent is identified by 
+div in JSX by babbel. So provide at least one div to provide multiple HTML statements.
+Now if you don't want this extra div so we can replace this extra div with React.Fragment

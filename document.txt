@@ -76,3 +76,8 @@ return (
 Also when writing many html statements(more than one), it is important to have at least one parent. Parent is identified by 
 div in JSX by babbel. So provide at least one div to provide multiple HTML statements.
 Now if you don't want this extra div so we can replace this extra div with React.Fragment
+
+we could not use "class" property in JSX but we can use className as ulimately JSX is a javascript and class is a 
+reserved keyword in it.
+
+CTRL + D to activate 2 cursor simulataneously

@@ -81,3 +81,22 @@ we could not use "class" property in JSX but we can use className as ulimately J
 reserved keyword in it.
 
 CTRL + D to activate 2 cursor simulataneously
+
+19. With map function each tag must have unique value. This unique value just creates error in console not visually seem impacted.
+This key is required by react to keep virtual dom in sync with html dom. So you need to put key value for each element as shown:
+<ul>
+          {this.state.tags.map(tag => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+		
+There are if else in JSX as JSX is not a template engine. However we can use logical operators &&, || in JSX by which we can induce
+similar functionality.
+Note:
+true && "Hi" is Hi
+Hi && true is true
+
+19. In event handlers we don;t have accesss to this.
+
+20. In React when state is changed, new ReactElement or virtual DOM is generated, then react compare new virtual DOM and old virtual DOM, 
+and only change that part of DOM that actually changed and don't change it what has not changed due to change in state in new virtual DOM.

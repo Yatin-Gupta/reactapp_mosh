@@ -102,3 +102,100 @@ Hi && true is true
 and only change that part of DOM that actually changed and don't change it what has not changed due to change in state in new virtual DOM.
 
 21. Every React component has property called props.
+
+22. import React, { Component } from "react"; // shortcut to create it imrc
+
+23. 
+// Stateless functional Component. Developers prefer to create these components for
+// components that don't have state. In this components react has to pass props in it
+// and we don't use this.props but instead just props.
+// shortcut to create it on VSC is sfc
+const NavbarComponent = props => {
+  return (
+    <React.Fragment>
+      <nav className="navbar navbar-light bg-light">
+        <a className="navbar-brand" href="#">
+          Navbar {props.counterLength}
+        </a>
+      </nav>
+    </React.Fragment>
+  );
+};
+
+export default NavbarComponent;
+
+As we are just interested in getting counterLength thus we can write(using object destructuring) it as:
+
+const NavbarComponent = ({counterLength}) => {
+  return (
+    <React.Fragment>
+      <nav className="navbar navbar-light bg-light">
+        <a className="navbar-brand" href="#">
+          Navbar {counterLength}
+        </a>
+      </nav>
+    </React.Fragment>
+  );
+};
+
+Object Destructuring can also works this way as:
+
+const { onReset, counters, onDelete, onIncrement } = this.props;
+
+24.
+// class NavbarComponent extends Component { // shortcut to create class is cc
+
+25. Component goes through lifecycle hooks phases as:
+-> Mounting Phase: This is the phase when component is created and inserted into DOM.
+In Mounting phase we have 3 lifecycle hooks as:
+constructor(when component created)
+render
+componentDidMount(when component rendered to DOM): it is perfect place to make AJAX calls to get data from server and then we can called setState
+to change state of application.
+react will call these methods in order as given
+
+-> Update: This happen when state or props get changed. Here we have 2 hooks as:
+render
+componentDidUpdate : In it we can get prevProps and prevState and can use this.props to get current props and state. It will be called 
+for every component that is rendered, but prevProp and this.prop is only different for that component that is changed by user.
+
+-> Unmount phase: This is when component is removed from DOM. It have one lifecycle hook as:
+componentWillUnmount
+
+React will automatically called these methods.
+
+26. this.setState() can only be called in render or when component is placed in DOM, not in constructor. In constructor,
+you don't need to call setState, you can directly change state to change it. 
+this.props can only be accessed in constructor when it is written as:
+constructor(props) {
+    super(props);
+    console.log("Counters Component constructor");
+    console.log(this.props);
+}
+if props is not passed to constructor or super method inside constructor then this.props return undefined(not this but this.props)
+
+27.
+We cannot use lifecycle hooks in Stateless Functional Components.
+
+28.
+When a component is rendered, all its children rendered recursively
+
+29. Suppose there are 3 components as: A, B and C such that A->B->C, where A holds state and remaining 2 are 
+stateless, then if any event occur 
+
+
+React JS Covered
+JSX
+Rendering Lists
+Conditional Rendering
+Handling Events`
+Updating State
+Composing Components
+Props
+Raising and Handling Events
+Lifting the State
+Functional Components
+Lifecycle Hooks
+
+
+

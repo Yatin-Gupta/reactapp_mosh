@@ -102,3 +102,9 @@ Hi && true is true
 and only change that part of DOM that actually changed and don't change it what has not changed due to change in state in new virtual DOM.
 
 21. Every React component has property called props.
+
+22. we use children with props when we want to pass content between opening and closing tag.
+
+23. You cannot directly change props property 
+
+24. State is internal to component. It is not visible outside it.

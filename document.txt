@@ -189,6 +189,9 @@ When a component is rendered, all its children rendered recursively
 29. Suppose there are 3 components as: A, B and C such that A->B->C, where A holds state and remaining 2 are 
 stateless, then if any event occur 
 
+30. React is only for view rendering. It donot support routing as it is simply a library. There is implementation for route in 
+react as: react-router-dom.
+
 
 React JS Covered
 JSX
